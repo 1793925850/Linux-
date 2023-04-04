@@ -88,3 +88,37 @@
 | find -type f -print() \| xargs -r0 grep -F ‘expr’ |   在当前目录及其子目录的常规文件中查找”expr“   |
 | find -maxdepth 1 -type f \| xargs grep -F ‘expr’  |             在当前目录中查找”expr“             |
 
+# 5. 压缩、解压
+
+|              命令               |                             解析                             |
+| :-----------------------------: | :----------------------------------------------------------: |
+|           bzip2 file1           |                          压缩 file1                          |
+|        bunzip2 file1.bz2        |                        解压 file1.bz2                        |
+|           gzip file1            |                          压缩 file1                          |
+|          gzip -9 file1          |                      最大程度压缩 file1                      |
+|         gunzip file1.gz         |                        解压 file1.gz                         |
+|   tar -cvf archive.tar file1    | 把 file1 打包成 archive.tar(-c: 建立压缩档案；-v: 显示所有过程；-f: 使用档案名字，是必须的，是最后一个参数) |
+| tar -cvf archive.tar file1 dir1 |              把 file1，dir1 打包成 archive.tar               |
+|       tar -tf archive.tar       |                      显示一个包中的内容                      |
+|      tar -xvf archive.tar       |                          释放一个包                          |
+|  tar -xvf archive.tar -C /tmp   |                  把压缩包释放到 /tmp 目录下                  |
+|       zip file1.zip file1       |                  创建一个 zip 格式的压缩包                   |
+|   zip -r file1.zip file1 dir1   |           把文件和目录压缩成一个 zip 格式的压缩包            |
+|         unzip file1.zip         |             解压一个 zip 格式的压缩包到当前目录              |
+|     unzip test.zip -d /tmp/     |            解压一个 zip 格式的压缩包到 /tmp 目录             |
+
+# 6. yum安装器
+
+|              命令              |                         解析                          |
+| :----------------------------: | :---------------------------------------------------: |
+|    yum -y install [package]    |                 下载并安装一个 rpm 包                 |
+| yum localinstall [package.rpm] | 安装一个 rpm 包，使用你自己的软件仓库解决所有依赖关系 |
+|         yum -y update          |            更新当前系统中安装的所有 rpm 包            |
+|      yum update [package]      |                    更新一个 rpm 包                    |
+|      yum remove [package]      |                    删除一个 rpm 包                    |
+|            yum list            |              列出当前系统中安装的所有包               |
+|      yum search [package]      |                在 rpm 仓库中搜寻软件包                |
+|      yum clean [package]       |        清除缓存目录(/var/cache/yum)下的软件包         |
+|       yum clean headers        |                    删除所有头文件                     |
+|         yum clean all          |               删除所有缓存的包和头文件                |
+
